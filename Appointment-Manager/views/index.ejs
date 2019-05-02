@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>My Appointment Manager</title>
+  </head>
+  <body>
+    <div class="header">
+
+      <h1>My Appointments</h1>
+
+      <a href="/new"> Add a New Appointment </a>
+
+    </div>
+
+    <section>
+      <div class="appointments-list">
+        <h2> Upcoming </h2>
+        <ul>
+          <% for(let i=0; i < allAppointments.length; i++) { %>
+            <li>
+              <div class="date-time">
+                  <div class="date">
+                    <h3> <%= allAppointments[i].date %> </h3>
+                  </div>
+                  <div class="time">
+                    <h3><%= allAppointments[i].time %></h3>
+                  </div>
+              </div>
+
+              <div class="">
+                <p><strong>With</strong> : <%= allAppointments[i].with %></p>
+                <p><strong>Location</strong> : <%= allAppointments[i].location %></p>
+                <p><strong>Description</strong>: <%= allAppointments[i].description %></p>
+              </div>
+                <form class="" action="index.html" method="post">
+                    <input type="submit" name="" value="Cancel">
+                </form>
+
+                <form class="" action="index.html" method="post">
+                  <input type="submit" name="" value="Reschedule">
+                </form>
+
+
+                <a href="/<%= allAppointments[i].id %>/edit">Edit</a>
+
+            </li>
+            <hr>
+
+          <%}%>
+
+        </ul>
+      </div>
+
+    </section>
+
+
+
+
+
+  </body>
+</html>

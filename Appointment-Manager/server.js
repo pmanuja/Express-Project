@@ -46,15 +46,19 @@ app.use(express.json());// returns middleware that only parses JSON - may or may
 app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
 
 
+
 //___________________
 // Routes
 //___________________
 //localhost:3000
-app.get('/' , (req, res) => {
-  res.send('Hello World! Welcome to my Exprees App');
-});
+// app.get('/' , (req, res) => {
+//   res.send('Hello World! Welcome to my Exprees App');
+// });
 
 //___________________
 //Listener
 //___________________
 app.listen(PORT, () => console.log( 'Listening on port:', PORT));
+
+const appointmentController = require('./controllers/appointment_Controller.js');
+app.use(appointmentController);
