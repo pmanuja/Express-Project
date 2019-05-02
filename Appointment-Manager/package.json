@@ -1,6 +1,9 @@
 {
   "name": "Express-Project",
   "version": "1.0.0",
+  "engines": {
+    "node": "11.12.0"
+  },
   "description": "Unit 2 project - Express, Node.js, MongoDB, EJS",
   "main": "server.js",
   "scripts": {
