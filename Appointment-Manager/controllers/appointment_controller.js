@@ -3,6 +3,17 @@ const appointment = express.Router();
 const Appointment = require('../models/appointments.js');
 
 
+
+
+//delete appointment from db
+appointment.delete('/:id',(req, res) => {
+
+  Appointment.findByIdAndRemove(req.params.id, (err, data)=>{
+        res.redirect('/');//redirect back to index
+    });
+
+});
+
 //index page - show all appointments
 appointment.get('/',(req, res) => {
   Appointment.find({},(err, allAppointments) => {
@@ -29,6 +40,9 @@ appointment.post('/new',(req, res) => {
   });
 });
 
+
+
+
 //show details of a specific appointment
 appointment.get('/:id',(req, res) => {
   res.render('show.ejs');
@@ -44,6 +58,7 @@ appointment.get('/:id/edit',(req, res) => {
 
 });
 
+//put edited/updated appointment details into db
 appointment.put('/:id/edit',(req, res) => {
 
   Appointment.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedModel)=>{
@@ -51,6 +66,8 @@ appointment.put('/:id/edit',(req, res) => {
     });
 
 });
+
+
 
 //one time seed route
 // appointment.get('/seed', async (req, res) => {

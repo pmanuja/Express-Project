@@ -1,6 +1,6 @@
 .date-time{
   display: flex;
-  width:60%;
+  width:100%;
 }
 .date{
   flex:1;
@@ -22,6 +22,18 @@ h1{
   text-align: center;
   padding: 15px;
   margin: 5px;
+}
+h4{
+  padding: 20px;
+  font-family: helvetica;
+  background-color: rgb(23, 162, 184);
+  color: white;
+}
+hr{
+  background-color: orange;
+}
+p{
+  font-family: helvetica;
 }
 /* .header{
   background-color: green;
