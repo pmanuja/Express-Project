@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/styles.css">
+
+    <title>My Appointment Manager</title>
+  </head>
+  <body>
+    <div class="header">
+        <h1>My Appointments</h1>
+    </div>
+
+    <section class="main">
+
+      <div class="appointments-list">
+        <div class="sub-header">
+          <div class="sub-heading">
+            <h4> UPCOMING </h4>
+          </div>
+          <div class="add-new-btn">
+              <a class="btn btn-info" href="/new">Schedule More </a>
+          </div>
+
+        </div>
+
+        <ul>
+          <% for(let i=0; i < allAppointments.length; i++) { %>
+            <li>
+              <div class="date-time">
+                  <div class="date">
+                    <h5> <%= allAppointments[i].date %> </h5>
+                  </div>
+                  <div class="time">
+                    <h5><%= allAppointments[i].time %></h5>
+                  </div>
+              </div>
+
+              <div class="appointment-details">
+                <p><strong>With</strong> : <%= allAppointments[i].with %></p>
+                <p><strong>Location</strong> : <%= allAppointments[i].location %></p>
+                <p><strong>Description</strong>: <%= allAppointments[i].description %></p>
+              </div>
+              <div class="container">
+                <div class="cancel-btn">
+                  <form action="/<%=allAppointments[i].id%>?_method=DELETE" method="POST">
+                    <input class="btn btn-info" type="submit" value="Delete">
+                  </form>
+                </div>
+                <div class="reschedule-btn">
+                  <a class="btn btn-info" href="/<%= allAppointments[i].id %>/edit">Reschedule</a>
+                </div>
+            </div>
+
+            </li>
+            <hr>
+
+          <%}%>
+
+        </ul>
+      </div>
+
+    </section>
+
+  </body>
+</html>

@@ -1,0 +1,101 @@
+body{
+  background: navajowhite;
+}
+.date-time{
+  display: flex;
+  width:60%;
+  margin-top: 10px;
+
+}
+.date{
+  flex:1;
+}
+.time{
+  flex:1;
+}
+
+.appointments-list{
+  width:60%;
+  background-color: ivory;
+  margin: auto;
+  border: 1px solid gray;
+
+}
+ul,li{
+  list-style-type: none;
+}
+h1{
+  text-align: center;
+  padding: 15px;
+  margin: 5px;
+}
+h4{
+  padding: 20px;
+  font-family: helvetica;
+  color: white;
+}
+hr{
+  background-color: brown;
+
+  margin-right:20px;
+}
+p{
+  font-family: helvetica;
+}
+/* .header{
+  background-color: green;
+  color: white;
+} */
+.edit-info{
+  width: 40%;
+    margin: auto;
+    background: ivory;
+    position: relative;
+    top: 60px;
+    text-align: left;
+    border: 1px solid gray;
+
+}
+.edit-info h3{
+  background-color: rgb(23, 162, 184);
+    text-align: center;
+    color: white;
+    
+    padding: 10px;
+    font-family: helvetica;
+}
+
+.form-body{
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.form-body input[type=text]{
+  width: 70%;
+}
+
+
+.container{
+  display: flex;
+  justify-content:flex-start;
+
+}
+
+.sub-header{
+  display: flex;
+  justify-content:space-between;
+  background-color: rgb(23, 162, 184);
+}
+.add-new-btn{
+  position: relative;
+  margin-top: 15px;
+  margin-right: 5px;
+}
+
+.cancel-btn{
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+.appointments-list{
+  width:40%;
+}
