@@ -2,8 +2,47 @@ const express = require('express');
 const appointment = express.Router();
 const Appointment = require('../models/appointments.js');
 
+//function returns day of week based on input day number
+const getDay = (dayNum) => {
+  let day ='';
+
+  switch (dayNum){
+    case 0:
+      day = 'Sunday';
+      break;
+
+    case 1:
+        day = 'Monday';
+        break;
+
+    case 2:
+        day = 'Tuesday';
+        break;
+
+    case 3:
+        day = 'Wednesday';
+        break;
+
+    case 4:
+        day = 'Thursday';
+        break;
+
+    case 5:
+        day = 'Friday';
+        break;
+
+    case 6:
+        day = 'Saturday';
+        break;
+
+    default:
+      day = "Invalid";
+      break;
 
 
+  }
+  return day;
+}
 
 //delete appointment from db
 appointment.delete('/:id',(req, res) => {
@@ -33,7 +72,11 @@ appointment.get('/new',(req, res) => {
 //post a new appointment in db
 appointment.post('/new',(req, res) => {
 
-  console.log(req.body);
+  let date = new Date(req.body.date);
+  let day = date.getDay();
+  console.log('day today is : ' , day);
+  console.log(getDay(parseInt(day)));
+  // console.log('day today is : ' , day);
   Appointment.create(req.body , (err, newAppointment) => {
       console.log(newAppointment);
       res.redirect('/');
