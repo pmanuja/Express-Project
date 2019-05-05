@@ -60,5 +60,8 @@ app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
 //___________________
 app.listen(PORT, () => console.log( 'Listening on port:', PORT));
 
+const usersController = require('./controllers/users_Controller.js');
+app.use(usersController);
+
 const appointmentController = require('./controllers/appointment_Controller.js');
 app.use(appointmentController);

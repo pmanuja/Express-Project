@@ -122,7 +122,9 @@ const getDay = (dayNum) => {
 }
 
 //get date as format 'May 30, 2019'
-const getFormattedDate = (date) => {
+const getFormattedDate = (dateStr) => {
+
+  let date = new Date(dateStr);
 
   let dateFormatted='';
 
@@ -150,15 +152,17 @@ const getFormattedDate = (date) => {
 appointment.delete('/:id',(req, res) => {
 
   Appointment.findByIdAndRemove(req.params.id, (err, data)=>{
-        res.redirect('/');//redirect back to index
+        res.redirect('/showAll');//redirect back to index
     });
 
 });
 
 //index page - show all appointments
-appointment.get('/',(req, res) => {
+appointment.get('/showAll',(req, res) => {
+
+
   Appointment.find({},(err, allAppointments) => {
-    res.render('index.ejs',{
+    res.render('showAll.ejs',{
       allAppointments : allAppointments
     });
   });
@@ -173,20 +177,20 @@ appointment.get('/new',(req, res) => {
 
 //post a new appointment in db
 appointment.post('/new',(req, res) => {
-  console.log('req body before' ,req.body);
 
-  let date = new Date(req.body.date);
-  let dateFormatted = getFormattedDate(date);
+  console.log('New - req body before ' ,req.body);
+
+  let dateFormatted = getFormattedDate(req.body.date);
   req.body.date = dateFormatted;
 
   let timeFormatted = getAmPm(req.body.time);
   req.body.time = timeFormatted;
 
-  console.log('req body after' , req.body);
+  console.log('New - req body after' , req.body);
 
   Appointment.create(req.body , (err, newAppointment) => {
       console.log(newAppointment);
-      res.redirect('/');
+      res.redirect('/showAll');
   });
 });
 
@@ -194,9 +198,9 @@ appointment.post('/new',(req, res) => {
 
 
 //show details of a specific appointment for edit
-appointment.get('/:id',(req, res) => {
-  res.render('show.ejs');
-});
+// appointment.get('/:id',(req, res) => {
+//   res.render('show.ejs');
+// });
 
 //edit details of an appointment
 appointment.get('/:id/edit',(req, res) => {
@@ -213,20 +217,16 @@ appointment.put('/:id/edit',(req, res) => {
 
   console.log('Edit - req body before ' ,req.body);
 
-  let date = new Date(req.body.date);
-  let dateFormatted = getFormattedDate(date);
-
-  // console.log('dateFormatted :' , dateFormatted);
-  // console.log('original date :' , req.body.date);
+  let dateFormatted = getFormattedDate(req.body.date);
+  req.body.date = dateFormatted;
 
   let timeFormatted = getAmPm(req.body.time);
   req.body.time = timeFormatted;
 
-  req.body.date = dateFormatted;
-
   console.log('Edit - req body after' , req.body);
+
   Appointment.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedModel)=>{
-        res.redirect('/');
+        res.redirect('/showAll');
     });
 
 });
