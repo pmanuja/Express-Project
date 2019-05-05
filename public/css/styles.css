@@ -60,7 +60,7 @@ p{
   background-color: rgb(23, 162, 184);
     text-align: center;
     color: white;
-    
+
     padding: 10px;
     font-family: helvetica;
 }
@@ -97,5 +97,5 @@ p{
   margin-bottom: 20px;
 }
 .appointments-list{
-  width:40%;
+  width:60%;
 }
