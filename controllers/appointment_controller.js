@@ -165,7 +165,7 @@ appointment.post('/new',(req, res) => {
 
 
 
-//show details of a specific appointment
+//show details of a specific appointment for edit
 appointment.get('/:id',(req, res) => {
   res.render('show.ejs');
 });
@@ -183,6 +183,17 @@ appointment.get('/:id/edit',(req, res) => {
 //put edited/updated appointment details into db
 appointment.put('/:id/edit',(req, res) => {
 
+  console.log('Edit - req body before ' ,req.body);
+
+  let date = new Date(req.body.date);
+  let dateFormatted = getFormattedDate(date);
+
+  console.log('dateFormatted :' , dateFormatted);
+  console.log('original date :' , req.body.date);
+
+  req.body.date = dateFormatted;
+
+  console.log('Edit - req body after' , req.body);
   Appointment.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedModel)=>{
         res.redirect('/');
     });
