@@ -2,6 +2,34 @@ const express = require('express');
 const appointment = express.Router();
 const Appointment = require('../models/appointments.js');
 
+
+//function to return AM/pm
+const getAmPm = (time) => {
+  console.log(time);
+let timeFormatted = '';
+let meridian = "";
+let timeSplit = time.split(':');
+let hours = timeSplit[0];
+let minutes = timeSplit[1];
+if (hours > 12) {
+    meridian = 'PM';
+    hours -= 12;
+  } else if (hours < 12) {
+    meridian = 'AM';
+    if (hours == 0) {
+      hours = 12;
+    }
+  } else {
+    meridian = 'PM';
+  }
+
+  timeFormatted = hours + ':' + minutes + ' ' + meridian;
+  console.log(timeFormatted);
+  return timeFormatted;
+}
+
+
+
 //function that returns month name
 const getMonthName = (monthNum) => {
   let month = '';
@@ -111,7 +139,7 @@ const getFormattedDate = (date) => {
   let yyyy = date.getFullYear();
 
 
-  dateFormatted = day + ', ' + mm + ' ' + dd + ',' + yyyy;
+  dateFormatted = day + ', ' + mm + ' ' + dd + ', ' + yyyy;
   console.log('Formatted date is ', dateFormatted);
 
   return dateFormatted;
@@ -145,14 +173,14 @@ appointment.get('/new',(req, res) => {
 
 //post a new appointment in db
 appointment.post('/new',(req, res) => {
-  console.log('re body before' ,req.body);
+  console.log('req body before' ,req.body);
 
   let date = new Date(req.body.date);
   let dateFormatted = getFormattedDate(date);
-
-  console.log('dateFormatted :' , dateFormatted);
-  console.log('original date :' , req.body.date);
   req.body.date = dateFormatted;
+
+  let timeFormatted = getAmPm(req.body.time);
+  req.body.time = timeFormatted;
 
   console.log('req body after' , req.body);
 
@@ -188,8 +216,11 @@ appointment.put('/:id/edit',(req, res) => {
   let date = new Date(req.body.date);
   let dateFormatted = getFormattedDate(date);
 
-  console.log('dateFormatted :' , dateFormatted);
-  console.log('original date :' , req.body.date);
+  // console.log('dateFormatted :' , dateFormatted);
+  // console.log('original date :' , req.body.date);
+
+  let timeFormatted = getAmPm(req.body.time);
+  req.body.time = timeFormatted;
 
   req.body.date = dateFormatted;
 
