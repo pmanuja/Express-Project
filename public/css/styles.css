@@ -21,6 +21,13 @@ body{
   border: 1px solid gray;
 
 }
+
+.reschedule-btn > a{
+  display: block;
+  margin: auto;
+  border-radius:0;
+}
+
 ul,li{
   list-style-type: none;
 }

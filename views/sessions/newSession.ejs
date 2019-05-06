@@ -3,17 +3,33 @@
   <head>
     <meta charset="utf-8">
     <title>New Session</title>
+    <% include ../partials/users_head.ejs %>
   </head>
   <body>
-    <p>Log In</p>
-    <form class="" action="/session/new" method="POST">
-      <label for="">username</label>
-      <input type="text" name="username" value="">
+    <div class="container">
+      <h3>Log In</h3>
+      <div class="row">
+        <form class="col s12" action="/session/new" method="POST">
+          <div class="row">
+            <div class="input-field col s6">
+              <label for="">username</label>
+              <input type="text" name="username" value="" class="validate">
+            </div>
+            </div>
 
-      <label for="">password</label>
-      <input type="text" name="password" value="">
+          <div class="row">
+            <div class="input-field col s6">
+              <label for="">password</label>
+              <input type="text" name="password" value="" class="validate">
+            </div>
 
-      <input type="submit" name="" value="GO">
-    </form>
+          </div>
+
+          <input type="submit" name="" value="GO" class="waves-effect waves-light btn">
+        </form>
+      </div>
+
+    </div>
+
   </body>
 </html>
