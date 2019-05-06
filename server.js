@@ -84,11 +84,11 @@ app.get('/index', (req, res) => {
 //___________________
 app.listen(PORT, () => console.log( 'Listening on port:', PORT));
 
-const usersController = require('./controllers/users_Controller.js');
+const usersController = require('./controllers/users_controller.js');
 app.use(usersController);
 
-const sessionsController = require('./controllers/sessions_Controller.js');
+const sessionsController = require('./controllers/sessions_controller.js');
 app.use(sessionsController);
 
-const appointmentController = require('./controllers/appointment_Controller.js');
+const appointmentController = require('./controllers/appointment_controller.js');
 app.use(appointmentController);
