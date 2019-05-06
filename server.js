@@ -4,6 +4,7 @@
 const express = require('express');
 const methodOverride  = require('method-override');
 const mongoose = require ('mongoose');
+const session = require('express-session');
 const app = express ();
 const db = mongoose.connection;
 
@@ -35,6 +36,12 @@ db.on('open' , ()=>{});
 //Middleware
 //___________________
 
+app.use(session({
+  secret: process.env.SECRET,
+  resave: false,
+  saveUninitialized: false
+}));
+
 //use public folder for static assets
 app.use(express.static('public'));
 
@@ -51,9 +58,26 @@ app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
 // Routes
 //___________________
 //localhost:3000
-// app.get('/' , (req, res) => {
-//   res.send('Hello World! Welcome to my Exprees App');
-// });
+
+//get the home page
+app.get('/', (req, res) => {
+  res.render('index.ejs',{
+    currentUser: req.session.currentUser
+  });
+});
+
+//
+app.get('/index', (req, res) => {
+  if(req.session.currentUser){
+        res.render('index.ejs',{
+          currentUser :req.session.currentUser
+        });
+    }
+    else {
+         res.redirect('/sessions/newSession');
+     }
+});
+
 
 //___________________
 //Listener
@@ -62,6 +86,9 @@ app.listen(PORT, () => console.log( 'Listening on port:', PORT));
 
 const usersController = require('./controllers/users_Controller.js');
 app.use(usersController);
+
+const sessionsController = require('./controllers/sessions_Controller.js');
+app.use(sessionsController);
 
 const appointmentController = require('./controllers/appointment_Controller.js');
 app.use(appointmentController);

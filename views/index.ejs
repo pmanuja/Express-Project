@@ -5,9 +5,19 @@
     <title>Sign up Page</title>
   </head>
   <body>
-    <a href="users/newUser" class="">Sign up</a>
-    <h3>or</h3>
-    <a href="/" class="">Log In</a>
 
+    <%if(currentUser){ %>
+      <h1>Welcome <%=currentUser.username%> </h1>
+      <a href="/showAll">Go To My Appointments</a>
+
+      <form action="/session?_method=DELETE" method="POST">
+          <input type="submit" value="Logout" class="">
+      </form>
+
+    <%} else{%>
+        <a href="users/newUser" class="">Sign up</a>
+        <h3>or</h3>
+        <a href="sessions/newSession" class="">Log In</a>
+      <%}%>
   </body>
 </html>
