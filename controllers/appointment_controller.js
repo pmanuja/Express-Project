@@ -160,7 +160,7 @@ appointment.delete('/:id',(req, res) => {
 //index page - show all appointments
 appointment.get('/showAll',(req, res) => {
 
-
+  // console.log('req body during show ALL' , req.body);
   Appointment.find({},(err, allAppointments) => {
     res.render('showAll.ejs',{
       allAppointments : allAppointments

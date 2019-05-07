@@ -1,4 +1,63 @@
+body{
+  background-color: ivory;
+  /* text-align: center; */
+}
 input[type=submit]{
   background-color: rgb(23, 162, 184);
   color:white;
+}
+
+.main-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* padding: 25px; */
+  background: white;
+  padding: 20px; */
+  width: 95%;
+  /* max-width: 400px; */
+
+  box-shadow: 0 0 20px rgba(0,0,0,0.5); */
+  border-radius: 3px;
+  border: 1px solid #DDD;
+
+}
+.index-logo{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 40px;
+  }
+.index-img {
+    width: 100px;
+    /* margin-bottom: 5px; */
+}
+
+.index-title {
+    font-family: 'Patua One', cursive;
+    font-size: 2.5em;
+    margin-left: 5px;
+    position:relative;
+    margin-top: 0;
+}
+
+.form-container, .form1-container{
+  max-width: 500px;
+  margin: auto;
+  margin-top: 10%;
+  background: mediumseagreen;;
+  padding: 20px; */
+  width: 95%;
+  /* max-width: 400px; */
+
+  box-shadow: 0 0 20px rgba(0,0,0,0.5); */
+  border-radius: 3px;
+  border: 1px solid #DDD;
+
+}
+
+.form1-container{
+  background-color: white;
+
 }

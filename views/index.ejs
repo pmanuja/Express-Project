@@ -6,9 +6,10 @@
     <% include ./partials/users_head.ejs %>
   </head>
   <body>
-    <div class="container">
+
       <%if(currentUser){ %>
-        <h1>Welcome <%=currentUser.username%> </h1>
+        <div class="form1-container">
+        <h3>Welcome <%=currentUser.username%> </h3>
         <a class="waves-effect waves-light btn" href="/showAll">Go To My Appointments</a>
         <h3>Or</h3>
 
@@ -17,13 +18,25 @@
             <input type="submit" value="Logout" class="waves-effect waves-light btn">
 
         </form>
-
+          </div>
       <%} else{%>
-          <h2>Please</h2>
-          <a href="users/newUser" class="waves-effect waves-light btn">Sign up</a>
-          <h3>Or</h3>
-          <a href="sessions/newSession" class="waves-effect waves-light btn">Log In</a>
+        <div class="form-container">
+          <div class="main-container">
+              <div class="index-logo">
+                <img class="index-img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJcAAAB9CAMAAACYngGvAAAAYFBMVEU3t3r///8ytnj7/fxiw5EptHQjs3ETsWzM6tqb1ran279MvIXq9vBHu4P1+/iJz6rA5dHa7+RXv4tqxZe34suS07Dj8+uDzaZxx5t8y6FBun/G6Naw38YArmYArF/S7N8X1FPmAAAEpklEQVR4nO2cDZeqLBDHcXSg9S1fyNLc2/f/lg8MarVpuZnUvQ9zzp7zP4jwO4QDAyzM+0xjY4l+urFnqT+XSwbCpgVyFld64MBsGvAyncEVcKtU2njwmGtnH0uB7R5xxeINWIyJ+AFX+I7mUg0WPuA62O3zvcHhPpcfvIkr8B2X43JcjstxOS7HtRLXaK75iStxAQKgkVpBn3hWt48tcEGUxbmZb/OwimVDBGUe5yXhNDKuzPyS7/I4i+YU+QIuAApfdooBW61yxQClLtgv1es814mtfkzT9hRmlPkCLlObF6NqOBNg1cD4kdSRM6hJpaqZ0Mzad2iFi5s41FdcXXylKhYVqUr02J4qCU1l8nHMsIwLuLbv1mQVXBTmra3gf+jH8/I/XGxNYqGem8rab3rvbslLuEQRZsqkaRpPZtL8eN5JSfOLpkqdTOJRSaMqqV8Lizsh4BIuGFtH+I3JO2U/z8WzhViel012tOe5biK8Z2wyOn2ei7cv4GqnGmwB1+YFXBvH5bgcl+NyXH8DVxovsXQ1rpYlzxtrV+NatIiul8L/51xmvs/xLGkSj2d5kcMeFxSt1KbjsCYkGTY6jiPZFiogKknKPdrkwrx76wDY76OEOExscwTot30SsNle/bbhFrGf/GeIXZym4+yozxHY5MIHXAiJ4/obuPpeXSP2Ma9ErDsZI2t6rshqv68rGvgkABQnkqdCaUmy0qs8O5OjBat+FcW3Np0KRgr9OjcShxxC51ibC4yZ4s56XF7olbkAA20FNUFBWlfLE5KJzgE3OdDC79h19hNn/UfoRzB8hFuEqKsiQ8a7Nad49fbqlwg9P4HH/j7pa1vdTwxcqWqkh/7L3jh05kpmcNnzqx/fXp/Wv1jlk6kqUBoZq6bbpyTTvWqk2CRL9T1ujKzY6uMQNIeyLA+lqgmgJEv01kZByYWWiUlWbg1YScmNBf8FN56dneWlZteZ1+ZCUxOea9XeXDcO/ZnttB7mIvPKXBjmZDvVv+oTSal3ijYkN3pXSJI81aj308jC1eMO6LZevLSBYf61v5p/7TsZIwzzr8L5Vcf1O64PG4eivlb19XcbfhPxdnURb68fd0Cd0SZkqZxVQRuL2Vb5CUZbk1moFG5NDvUNQmly1Bb8Pa3WiIvVGmHWc8SQjOJyPUcIYWU953Ycuhd3XBSw9rhtRmWqPzDjNlyN22DG7eAH2cr9vnfhuRqHuu1tv7iKO4quiuP18YQPmhe+g2uO/3oL1wx/79rrPM/xP6u9GJxMKJGp7zE0Mm/UKNDFHcqzN7lJDu1yNQUZTZqN1FEFRiQjvMphkWtqnYmNp67PpZyoFPC8CUnHw17NhV/q6fb505qwVTV/TZ1QW3A+Z5h7Pm9p8vrzOSoqG/1Hsl+YX08e6Fty/guD3FtieTB9znDReTkQGD1vKO4VvfDc44Lv8X65//j5aMfluByX43JcjstxOS7H9W9zeeWbuErvPteM/41aw/DnRQ8/uao33fNQPeDypmPPFW04mzXNFTf2wbD5eS3GyP0mcWH93pXiBmvsnpp0hxztGcfdyIrM+L0+x/DLloXH2ff6fIJ9Ktd/C7J65VjD2qUAAAAASUVORK5CYII=" alt="">
+
+                <span class="index-title">Book Me</span>
+              </div>
+
+              <div class="">
+                <a href="users/newUser" class="">SignUp</a>
+                <span>or</span>
+                <a href="sessions/newSession" class="">LogIn</a>
+              </div>
+
+          </div>
+          </div>
         <%}%>
-      </div>
+
   </body>
 </html>

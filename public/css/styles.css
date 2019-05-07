@@ -1,5 +1,6 @@
 body{
-  /* background-color: grey; */
+  background-color: ivory;
+
 }
 .date-time{
   display: flex;
@@ -16,9 +17,12 @@ body{
 
 .appointments-list{
   width:60%;
-  background-color: ivory;
+  background-color: white;
   margin: auto;
   border: 1px solid gray;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5); */
+  border-radius: 3px;
+  border: 1px solid #DDD;
 
 }
 
@@ -31,23 +35,25 @@ body{
 ul,li{
   list-style-type: none;
 }
-h1{
+h1,h2{
   text-align: center;
   padding: 15px;
   margin: 5px;
+  font-family: helvetica;
 }
+
 h4{
   padding: 20px;
   font-family: helvetica;
   color: white;
 }
 hr{
-  background-color: brown;
+  background-color: black;
 
   margin-right:20px;
 }
 p{
-  font-family: helvetica;
+  font-family:cursive;
 }
 /* .header{
   background-color: green;
@@ -55,16 +61,16 @@ p{
 } */
 .edit-info{
   width: 40%;
-    margin: auto;
-    background: ivory;
-    position: relative;
-    top: 60px;
-    text-align: left;
-    border: 1px solid gray;
+  margin: auto;
+  background: white;
+  position: relative;
+  top: 60px;
+  text-align: left;
+  border: 1px solid gray;
 
 }
 .edit-info h3{
-  background-color: rgb(23, 162, 184);
+  background-color: mediumseagreen;
     text-align: center;
     color: white;
 
@@ -91,7 +97,7 @@ p{
 .sub-header{
   display: flex;
   justify-content:space-between;
-  background-color: rgb(23, 162, 184);
+  background-color: mediumseagreen;
 }
 .add-new-btn{
   position: relative;
@@ -105,4 +111,11 @@ p{
 }
 .appointments-list{
   width:60%;
+}
+.btn-color{
+  color: white;
+  background-color: mediumseagreen;
+}
+.btn-back{
+  margin-left: 20px;
 }
