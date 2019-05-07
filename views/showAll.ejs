@@ -6,13 +6,11 @@
   </head>
   <body>
     <div class="header">
-      <a class="" href="/index"> Back to Home </a>
+      <a class="btn-back" href="/index"> Home </a>
         <h2>My Appointments</h2>
     </div>
 
     <section class="main">
-
-
 
       <div class="appointments-list">
 
@@ -47,11 +45,11 @@
               <div class="container">
                 <div class="cancel-btn">
                   <form action="/<%=allAppointments[i].id%>?_method=DELETE" method="POST">
-                    <input class="btn btn-info" type="submit" value="Delete">
+                    <input class="btn btn-info btn-color" type="submit" value="Delete">
                   </form>
                 </div>
                 <div class="reschedule-btn">
-                  <a class="btn btn-info" href="/<%= allAppointments[i].id %>/edit">Reschedule</a>
+                  <a class="btn btn-info btn-color" href="/<%= allAppointments[i].id %>/edit">Reschedule</a>
                 </div>
             </div>
 

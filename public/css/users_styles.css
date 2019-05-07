@@ -41,7 +41,9 @@ input[type=submit]{
     position:relative;
     margin-top: 0;
 }
-
+h5{
+  font-family: 'Patua One', cursive;
+}
 .form-container, .form1-container{
   max-width: 500px;
   margin: auto;
@@ -60,4 +62,8 @@ input[type=submit]{
 .form1-container{
   background-color: white;
 
+}
+.btn-color{
+  color: white;
+  background-color: mediumseagreen;
 }
