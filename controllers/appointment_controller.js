@@ -137,7 +137,7 @@ const getFormattedDate = (dateStr) => {
   mm = getMonthName(parseInt(mm));
   console.log('mm is ' , mm);
 
-  let dd = String(date.getDate() + 1);
+  let dd = String(date.getDate());
   let yyyy = date.getFullYear();
 
 
@@ -173,7 +173,7 @@ appointment.get('/showAll',(req, res) => {
       allAppointments[i].time = timeFormatted;
     }
 
-  
+
     res.render('showAll.ejs',{
       allAppointments : allAppointments
     });
