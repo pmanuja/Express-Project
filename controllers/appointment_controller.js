@@ -162,6 +162,18 @@ appointment.get('/showAll',(req, res) => {
 
   // console.log('req body during show ALL' , req.body);
   Appointment.find({},(err, allAppointments) => {
+
+    for(let i = 0; i < allAppointments.length; i++){
+      console.log('ShowAll - date before ' , allAppointments[i].date);
+      console.log('ShowAll - time before ' , allAppointments[i].time);
+      let dateFormatted = getFormattedDate(allAppointments[i].date);
+      allAppointments[i].date = dateFormatted;
+      console.log('ShowAll - date before ' , allAppointments[i].date);
+      let timeFormatted = getAmPm(allAppointments[i].time);
+      allAppointments[i].time = timeFormatted;
+    }
+
+  
     res.render('showAll.ejs',{
       allAppointments : allAppointments
     });
@@ -178,15 +190,15 @@ appointment.get('/new',(req, res) => {
 //post a new appointment in db
 appointment.post('/new',(req, res) => {
 
-  console.log('New - req body before ' ,req.body);
-
-  let dateFormatted = getFormattedDate(req.body.date);
-  req.body.date = dateFormatted;
-
-  let timeFormatted = getAmPm(req.body.time);
-  req.body.time = timeFormatted;
-
-  console.log('New - req body after' , req.body);
+  // console.log('New - req body before ' ,req.body);
+  //
+  // let dateFormatted = getFormattedDate(req.body.date);
+  // req.body.date = dateFormatted;
+  //
+  // let timeFormatted = getAmPm(req.body.time);
+  // req.body.time = timeFormatted;
+  //
+  // console.log('New - req body after' , req.body);
 
   Appointment.create(req.body , (err, newAppointment) => {
       console.log(newAppointment);
@@ -215,15 +227,15 @@ appointment.get('/:id/edit',(req, res) => {
 //put edited/updated appointment details into db
 appointment.put('/:id/edit',(req, res) => {
 
-  console.log('Edit - req body before ' ,req.body);
-
-  let dateFormatted = getFormattedDate(req.body.date);
-  req.body.date = dateFormatted;
-
-  let timeFormatted = getAmPm(req.body.time);
-  req.body.time = timeFormatted;
-
-  console.log('Edit - req body after' , req.body);
+  // console.log('Edit - req body before ' ,req.body);
+  //
+  // let dateFormatted = getFormattedDate(req.body.date);
+  // req.body.date = dateFormatted;
+  //
+  // let timeFormatted = getAmPm(req.body.time);
+  // req.body.time = timeFormatted;
+  //
+  // console.log('Edit - req body after' , req.body);
 
   Appointment.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedModel)=>{
         res.redirect('/showAll');

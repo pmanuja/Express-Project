@@ -7,21 +7,29 @@
   <body>
     <div class="header">
       <a class="btn-back" href="/index"> Home </a>
-        <h2>My Appointments</h2>
-    </div>
+      <a class="btn-back"href="/new">Schedule New </a>
+      <a class="btn-back" href="/">LogOut </a>
 
+
+    </div>
+  <h2>My Appointments</h2>
     <section class="main">
 
       <div class="appointments-list">
 
         <div class="sub-header">
           <div class="sub-heading">
-            <h4> UPCOMING </h4>
+            <ul class="nav">
+              <li class="UPCOMING"><h5><a href="#UPCOMING">UPCOMING</h5></a></li>
+              <li class="PAST"><h5><a href="#PAST">PAST</h5></a></li>
+              <li class="CANCELLED"><h5><a href="#CANCELLED">CANCELLED</h5></a></li>
+
+            </ul>
           </div>
 
-          <div class="add-new-btn">
+          <!-- <div class="add-new-btn">
               <a class="btn btn-info btn-color" href="/new">Schedule New </a>
-          </div>
+          </div> -->
 
         </div>
 
@@ -30,10 +38,10 @@
             <li>
               <div class="date-time">
                   <div class="date">
-                    <h5> <%= allAppointments[i].date %> </h5>
+                    <h6> <%= allAppointments[i].date %> </h6>
                   </div>
                   <div class="time">
-                    <h5><%= allAppointments[i].time %></h5>
+                    <h6><%= allAppointments[i].time %></h6>
                   </div>
               </div>
 
@@ -45,7 +53,7 @@
               <div class="container">
                 <div class="cancel-btn">
                   <form action="/<%=allAppointments[i].id%>?_method=DELETE" method="POST">
-                    <input class="btn btn-info btn-color" type="submit" value="Delete">
+                    <input class="btn btn-info btn-color" type="submit" value="Cancel">
                   </form>
                 </div>
                 <div class="reschedule-btn">

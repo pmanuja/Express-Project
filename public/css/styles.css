@@ -42,7 +42,7 @@ h1,h2{
   font-family: helvetica;
 }
 
-h4{
+h4,h5,.sub-heading a{
   padding: 20px;
   font-family: helvetica;
   color: white;
@@ -102,6 +102,14 @@ p{
   justify-content:space-between;
   background-color: mediumseagreen;
 }
+.sub-heading{
+  display: flex;
+  /* justify-content:flex-end; */
+
+}
+.sub-heading .nav li a:hover { background-color: orange; }
+
+
 .add-new-btn{
   position: relative;
   margin-top: 15px;

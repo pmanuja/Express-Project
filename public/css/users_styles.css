@@ -41,7 +41,7 @@ input[type=submit]{
     position:relative;
     margin-top: 0;
 }
-h5{
+.greeting{
   font-family: 'Patua One', cursive;
 }
 .form-container, .form1-container{
