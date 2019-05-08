@@ -32,41 +32,45 @@
           </div> -->
 
         </div>
+          <%if(allAppointments.length > 0) {%>
+            <ul>
+            <% for(let i=0; i < allAppointments.length; i++) { %>
+              <li>
+                <div class="date-time">
+                    <div class="date">
+                      <h6> <%= allAppointments[i].date %> </h6>
+                    </div>
+                    <div class="time">
+                      <h6><%= allAppointments[i].time %></h6>
+                    </div>
+                </div>
 
-        <ul>
-          <% for(let i=0; i < allAppointments.length; i++) { %>
-            <li>
-              <div class="date-time">
-                  <div class="date">
-                    <h6> <%= allAppointments[i].date %> </h6>
+                <div class="appointment-details">
+                  <p><strong>With</strong> : <%= allAppointments[i].with %></p>
+                  <p><strong>Location</strong> : <%= allAppointments[i].location %></p>
+                  <p><strong>Description</strong>: <%= allAppointments[i].description %></p>
+                </div>
+                <div class="container">
+                  <div class="cancel-btn">
+                    <form action="/<%=allAppointments[i].id%>?_method=DELETE" method="POST">
+                      <input class="btn btn-info btn-color" type="submit" value="Cancel">
+                    </form>
                   </div>
-                  <div class="time">
-                    <h6><%= allAppointments[i].time %></h6>
+                  <div class="reschedule-btn">
+                    <a class="btn btn-info btn-color" href="/<%= allAppointments[i].id %>/edit">Reschedule</a>
                   </div>
               </div>
 
-              <div class="appointment-details">
-                <p><strong>With</strong> : <%= allAppointments[i].with %></p>
-                <p><strong>Location</strong> : <%= allAppointments[i].location %></p>
-                <p><strong>Description</strong>: <%= allAppointments[i].description %></p>
-              </div>
-              <div class="container">
-                <div class="cancel-btn">
-                  <form action="/<%=allAppointments[i].id%>?_method=DELETE" method="POST">
-                    <input class="btn btn-info btn-color" type="submit" value="Cancel">
-                  </form>
-                </div>
-                <div class="reschedule-btn">
-                  <a class="btn btn-info btn-color" href="/<%= allAppointments[i].id %>/edit">Reschedule</a>
-                </div>
-            </div>
+              </li>
+              <hr>
 
-            </li>
-            <hr>
+            <%}%>
 
-          <%}%>
+          </ul>
+            <%} else {%>
 
-        </ul>
+              <h3>You do not have any upcoming appointments</h3>
+            <%}%>
       </div>
 
     </section>
