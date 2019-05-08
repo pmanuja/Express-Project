@@ -21,6 +21,8 @@ Application uses 2 models - User model and Appointments model.
 
 A user would need to signUp and then login to access application features.
 
+A user can schedule New/ Reschedule or delete/cancel appointnent
+
 User Stories:
 
 1. As a user, I should be able to SignUp
@@ -50,7 +52,9 @@ User Stories:
   . Click on Update button should take me back to Show ALL page and also display the updated details for that appointment
 
 5. As a user, I should be able to view all my appointment/appointments
-  
+
+Wireframe:
+wireframes/IMG_4721.jpeg
 
 Stretch goals accomplished:
 - use 2 Models
