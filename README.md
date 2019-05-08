@@ -21,7 +21,7 @@ Application uses 2 models - User model and Appointments model.
 
 A user would need to signUp and then login to access application features.
 
-A user can schedule New/ Reschedule or delete/cancel appointnent
+A user can schedule New/ Reschedule or delete/cancel appointment/appointments
 
 User Stories:
 
@@ -52,6 +52,14 @@ User Stories:
   . Click on Update button should take me back to Show ALL page and also display the updated details for that appointment
 
 5. As a user, I should be able to view all my appointment/appointments
+  . It should display following details about each appointment
+    Date
+    time
+    With
+    Location
+    Description/purpose
+    
+
 
 Wireframe:
 wireframes/IMG_4721.jpeg
